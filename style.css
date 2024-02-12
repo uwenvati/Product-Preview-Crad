@@ -1,0 +1,152 @@
+@import url(https://fonts.google.com/specimen/Montserrat/Fraunces);
+
+:root {
+  --Darkcyan: hsl(158, 36%, 37%);
+  --Darkercyan: hsla(158, 60%, 17%, 0.938);
+  --Cream: hsl(30, 38%, 92%);
+  --Darkblue: hsl(212, 21%, 14%);
+  --Darkgrayishblue: hsl(228, 12%, 48%);
+  --White: hsl(0, 0%, 100%);
+  
+  --ff-accent: 'Fraunces', serif;
+  --ff-base: 'Montserrat', sans-serif;
+ 
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+   line-height: 1.7;
+   -webkit-font-smoothing: antialiased;
+   
+}
+
+img,
+picture,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+ font-family: var(--ff-base);
+ font-weight: var(--fw-regular);
+ font-size: 0.875rem;
+ color: var(--Darkgrayishblue);
+ background-color: var(--Cream);
+
+ display: grid;
+ min-height: 100vh; 
+ place-content: center;
+ margin: 1rem;
+}
+
+/* utilities */
+.price-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap; 
+  align-items: center;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* button */
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  border: 0;
+  border-radius: 0.5rem;
+  padding: .5em 1.3em;
+  background-color: var(--Darkcyan);
+  color: var(--White);
+  font-weight: var(--fw-bold);
+  font-size: 0.925rem;
+}
+
+.button[data-icon="shopping-cart"]::before {
+  content: "";
+  background-image: url(images/icon-cart.svg);
+  width: 15px;
+  height: 16px; 
+}
+
+.button:is(:hover, :focus) {
+   background-color: var(--Darkercyan );
+}
+
+/* product styling */
+.product {
+   --content-padding: 2rem;
+   --content-spacing: 1rem;
+ 
+  
+   display: grid;
+   background-color: var(--White);
+   border-radius: 0.5rem;
+   overflow: hidden; 
+   max-width: 600px;   
+}
+
+@media (min-width: 600px) {
+  .product {
+    --content-padding: 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+.product_content {
+  
+  display: grid;
+  gap: var(--content-spacing);
+  padding: var(--content-padding);
+}
+
+.product_category {
+  font-size: .8125rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.product_title {
+  font-size: 2rem;
+  font-family: var(--ff-accent);
+  color: var(--Darkblue);
+}
+
+.product_price {
+  font-size: 2rem;
+  font-family: var(--ff-accent);
+  color: var(--Darkcyan);
+}
+ 
